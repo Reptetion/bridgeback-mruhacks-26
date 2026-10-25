@@ -47,6 +47,39 @@
   font-size: 12px;
 }
 
+.bridger-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.bridge-button,
+.skip-button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.bridge-button {
+  color: #fff;
+  background: var(--teal);
+}
+
+.skip-button {
+  color: var(--ink);
+  background: #f0f4f3;
+}
+
+.bridger-status {
+  margin-top: 12px !important;
+  color: #47765f !important;
+  font-weight: 700;
+}
+
 .bridger-card {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
