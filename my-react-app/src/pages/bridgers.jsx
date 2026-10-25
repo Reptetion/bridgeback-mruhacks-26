@@ -4,7 +4,7 @@ import BridgeButton from "../components/bridge.jsx";
 import SkipButton from "../components/skip.jsx";
 import "./jobs.css";
 
-function Bridgers() {
+function Candidates() {
   const [bridged, setBridged] = useState([]);
   const [skipped, setSkipped] = useState([]);
 
@@ -82,4 +82,4 @@ function Bridgers() {
   );
 }
 
-export default Bridgers;
+export default Candidates;

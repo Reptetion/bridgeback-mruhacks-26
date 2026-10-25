@@ -22,7 +22,7 @@ const initialMessages = [
     },
 ];
 
-function Candidates() {
+function Bridgers() {
     const [messages, setMessages] = useState(initialMessages);
     const [draft, setDraft] = useState("");
 
@@ -94,4 +94,4 @@ function Candidates() {
     );
 }
 
-export default Candidates;
+export default Bridgers;

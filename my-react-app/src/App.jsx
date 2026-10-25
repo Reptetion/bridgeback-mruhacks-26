@@ -9,10 +9,9 @@ import "./App.css";
 
 const pages = {
   Dashboard: { title: "Dashboard", eyebrow: "Talent workspace", Page: Dashboard },
-  Candidates: { title: "Candidates", eyebrow: "Talent workspace", Page: Candidates },
-  Matches: { title: "Matches", eyebrow: "Skill matches", Page: Matches },
+  Candidates: { title: "Candidates", eyebrow: "Find talent", Page: Bridgers },
+  Bridgers: { title: "Bridgers", eyebrow: "Connect with talent", Page: Candidates },
   Jobs: { title: "Jobs", eyebrow: "Open roles", Page: Jobs },
-  Bridgers: { title: "Bridgers", eyebrow: "Find talent", Page: Bridgers },
   Settings: { title: "Settings", eyebrow: "Workspace", Page: Settings },
 };
 
@@ -54,6 +53,7 @@ function App() {
         <Page />
       </main>
     </div>
+  
   );
 }
 
