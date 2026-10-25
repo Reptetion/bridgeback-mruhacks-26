@@ -88,7 +88,7 @@ export const candidates = [
     status: "Available",
     photo: user5,
   }
-
+,
   {
     id: 6,
     name: "Elena Rostova",
