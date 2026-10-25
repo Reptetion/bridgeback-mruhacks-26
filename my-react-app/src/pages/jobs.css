@@ -16,6 +16,12 @@
 .bridger-card,
 .match-card,
 .stat-card,
+.settings-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
 
 .job-card__header {
   display: flex;
@@ -75,6 +81,17 @@
 .job-card__save,
 .bridge-button,
 .skip-button,
+.settings-card button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--teal);
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
 
 .job-card__save[aria-pressed="true"],
 .bridge-button:disabled {
@@ -134,4 +151,19 @@
 .stat-card span {
   color: var(--muted);
   font-size: 13px;
+}
+
+.settings-card label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.settings-card input[type="text"] {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
 }

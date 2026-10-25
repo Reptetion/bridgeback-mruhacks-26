@@ -11,10 +11,25 @@ function Settings() {
   }
 
   return (
-    <section aria-label="Your Settings">
+    <section aria-label="Settings">
       <p className="page-intro">
-        Nothing here to see (for demo purposes only)
+        Demo settings only. Nothing here is sent to a server.
       </p>
+      <form className="settings-card" onSubmit={handleSave}>
+        <label>
+          Workspace name
+          <input
+            type="text"
+            value={name}
+            onChange={(event) => {
+              setName(event.target.value);
+              setSaved(false);
+            }}
+          />
+        </label>
+        <button type="submit">Save settings</button>
+        {saved && <p className="bridger-status">Saved for this demo.</p>}
+      </form>
     </section>
   );
 }
