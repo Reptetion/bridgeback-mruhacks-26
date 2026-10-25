@@ -3,8 +3,7 @@ import user2 from "../assets/user2.jpg";
 import user3 from "../assets/user3.jpg";
 import user4 from "../assets/user4.jpg";
 
-// Hardcoded demo data, on purpose for the hackathon demo.
-// No backend call is needed to show Candidates, Jobs, Bridgers, or Matches.
+
 export const candidates = [
   {
     id: 1,

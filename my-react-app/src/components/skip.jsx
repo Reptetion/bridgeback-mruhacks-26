@@ -1,3 +1,6 @@
+import React from "react";
+import "./skip.css"; 
+
 export default function SkipButton({ skipped, onSkip }) {
   return (
     <button
