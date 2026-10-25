@@ -15,7 +15,7 @@ platform where finding someone is possible with just a swipe, creating a less sa
 results are thrown right at you, <i>which can be quite overwhelming and difficult for new sellers to break into</i>, BridgeBack **bridges** that connection simply through a score, which is calculated based off relevance.
 
 ## Tech Stack Used
-- HTML
+- HTML + CSS
 - React + Vite
 - Javascript
 
