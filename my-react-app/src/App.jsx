@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Candidates from "./pages/candidates.jsx";
 import Dashboard from "./pages/dashboard.jsx";
-import Matches from "./pages/matches.jsx";
-import Jobs from "./pages/jobs.jsx";
 import Bridgers from "./pages/bridgers.jsx";
 import Settings from "./pages/settings.jsx";
 import "./App.css";
@@ -11,7 +9,6 @@ const pages = {
   Dashboard: { title: "Dashboard", eyebrow: "Talent workspace", Page: Dashboard },
   Candidates: { title: "Candidates", eyebrow: "Find talent", Page: Bridgers },
   Bridgers: { title: "Bridgers", eyebrow: "Connect with talent", Page: Candidates },
-  Jobs: { title: "Jobs", eyebrow: "Open roles", Page: Jobs },
   Settings: { title: "Settings", eyebrow: "Workspace", Page: Settings },
 };
 

@@ -5,16 +5,12 @@
   line-height: 1.5;
 }
 
-.job-list,
-.bridger-list,
-.match-list {
+.bridger-list {
   display: grid;
   gap: 16px;
 }
 
-.job-card,
 .bridger-card,
-.match-card,
 .stat-card,
 .settings-card {
   padding: 20px;
@@ -23,38 +19,16 @@
   background: var(--paper);
 }
 
-.job-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.job-card__header h2,
-.bridger-card h2,
-.match-card h2 {
+.bridger-card h2 {
   margin: 0 0 4px;
   font-size: 17px;
 }
 
-.job-card__header p,
-.bridger-card p,
-.match-card p {
+.bridger-card p {
   margin: 0 0 12px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
-}
-
-.job-card__match {
-  flex: 0 0 auto;
-  padding: 4px 10px;
-  border-radius: 999px;
-  color: #184f50;
-  background: #d5ece7;
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
 }
 
 .skill-list {
@@ -73,14 +47,7 @@
   font-size: 12px;
 }
 
-.job-card__candidate {
-  color: var(--ink) !important;
-  font-size: 14px !important;
-}
-
-.job-card__save,
 .bridge-button,
-.skip-button,
 .settings-card button {
   min-height: 38px;
   padding: 0 16px;
@@ -93,15 +60,21 @@
   cursor: pointer;
 }
 
-.job-card__save[aria-pressed="true"],
 .bridge-button:disabled {
   background: #9db9b7;
   cursor: default;
 }
 
 .skip-button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
   color: var(--ink);
   background: #f0f4f3;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
 }
 
 .skip-button:disabled {

@@ -1,15 +1,6 @@
-import { useState } from "react";
-import "./jobs.css";
+import "./pages.css";
 
 function Settings() {
-  const [name, setName] = useState("BridgeBack demo");
-  const [saved, setSaved] = useState(false);
-
-  function handleSave(event) {
-    event.preventDefault();
-    setSaved(true);
-  }
-
   return (
     <section aria-label="Settings">
       <p className="page-intro">

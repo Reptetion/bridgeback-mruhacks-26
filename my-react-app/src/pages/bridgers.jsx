@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { candidates, jobs, matchScore } from "../data/people.js";
+import { candidates } from "../data/people.js";
 import BridgeButton from "../components/bridge.jsx";
 import SkipButton from "../components/skip.jsx";
-import "./jobs.css";
+import "./pages.css";
 
 function Candidates() {
   const [bridged, setBridged] = useState([]);
@@ -21,14 +21,10 @@ function Candidates() {
   return (
     <section aria-label="Bridgers">
       <p className="page-intro">
-        Find talent. Each bridger is a hardcoded candidate, shown with the job
-        their skills match best. Bridge to keep a match, Skip to pass on it.
+        Find talent. Bridge to keep a candidate, or Skip to pass on them.
       </p>
       <div className="bridger-list">
         {candidates.map((candidate) => {
-          const bestJob = jobs
-            .map((job) => ({ job, ...matchScore(candidate, job) }))
-            .sort((a, b) => b.percent - a.percent)[0];
           const isBridged = bridged.includes(candidate.id);
           const isSkipped = skipped.includes(candidate.id);
           return (
@@ -49,12 +45,6 @@ function Candidates() {
                     <li key={skill}>{skill}</li>
                   ))}
                 </ul>
-                {bestJob && (
-                  <p>
-                    Best job match: <strong>{bestJob.job.title}</strong> (
-                    {bestJob.percent}%)
-                  </p>
-                )}
                 <div className="bridger-actions">
                   <BridgeButton
                     bridged={isBridged}
@@ -67,7 +57,7 @@ function Candidates() {
                 </div>
                 {isBridged && (
                   <p className="bridger-status">
-                    Bridged to {bestJob.job.title}
+                    Bridged successfully
                   </p>
                 )}
                 {isSkipped && (

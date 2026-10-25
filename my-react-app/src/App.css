@@ -115,7 +115,7 @@
   }
 
   .sidebar-nav {
-    grid-template-columns: repeat(5, minmax(max-content, 1fr));
+    grid-template-columns: repeat(4, minmax(max-content, 1fr));
     gap: 4px;
     overflow-x: auto;
   }

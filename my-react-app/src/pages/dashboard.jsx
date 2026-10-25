@@ -1,5 +1,5 @@
-import { candidates, jobs, matches } from "../data/people.js";
-import "./jobs.css";
+import { candidates } from "../data/people.js";
+import "./pages.css";
 
 function Dashboard() {
   return (
@@ -13,29 +13,17 @@ function Dashboard() {
           <span>Candidates</span>
         </article>
         <article className="stat-card">
-          <strong>{jobs.length}</strong>
-          <span>Jobs</span>
+          <strong>{candidates.filter((candidate) => candidate.status === "Available").length}</strong>
+          <span>Available candidates</span>
         </article>
         <article className="stat-card">
-          <strong>{matches.length}</strong>
-          <span>Skill matches</span>
+          <strong>0</strong>
+          <span>Active bridges</span>
         </article>
         <article className="stat-card">
           <strong>1</strong>
           <span>Active candidate chat</span>
         </article>
-      </div>
-      <div className="match-list" style={{ marginTop: 16 }}>
-        {matches.slice(0, 2).map(({ job, candidate, percent }) => (
-          <article className="match-card" key={job.id}>
-            <h2>
-              {candidate.name} <span aria-hidden="true">→</span> {job.title}
-            </h2>
-            <p>
-              {percent}% skill match. {candidate.skills.join(", ")}
-            </p>
-          </article>
-        ))}
       </div>
     </section>
   );
