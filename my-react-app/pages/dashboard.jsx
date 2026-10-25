@@ -17,8 +17,8 @@ function Dashboard() {
           <span>Available candidates</span>
         </article>
         <article className="stat-card">
-          <strong>0</strong>
-          <span>Active bridges</span>
+          <strong>{candidates.length}</strong>
+          <span>Candidate profiles</span>
         </article>
         <article className="stat-card">
           <strong>1</strong>

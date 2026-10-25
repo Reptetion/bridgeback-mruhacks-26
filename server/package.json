@@ -1,1 +1,0 @@
-{"author":"","dependencies":{"cors":"^2.8.6","express":"^5.3.0","pg":"^8.23.1"},"description":"BridgeBack demo server","devDependencies":{"nodemon":"^3.1.0"},"license":"ISC","main":"index.js","name":"server","scripts":{"dev":"nodemon index.js","start":"node index.js"},"type":"commonjs","version":"1.0.0"}
