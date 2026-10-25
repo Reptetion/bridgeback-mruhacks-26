@@ -13,7 +13,7 @@ const pages = {
   Matches: { title: "Matches", eyebrow: "Skill matches", Page: Matches },
   Jobs: { title: "Jobs", eyebrow: "Open roles", Page: Jobs },
   Bridgers: { title: "Bridgers", eyebrow: "Find talent", Page: Bridgers },
-  Settings: { title: "Settings", eyebrow: "Workspace", Page: Settings },
+  Settings: { title: "Your Settings", eyebrow: "Settings", Page: Settings },
 };
 
 const navigationItems = Object.keys(pages);
