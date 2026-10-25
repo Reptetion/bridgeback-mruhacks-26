@@ -1,97 +1,167 @@
 import { useState } from "react";
-import "./candidates.css";
+import { motion } from "framer-motion";
+import { candidates } from "../data/people.js";
+import "./pages.css";
 
-const initialMessages = [
-    {
-        id: 1,
-        sender: "candidate",
-        content: "Hi! Thanks for reaching out. I'd love to hear more about the role.",
-        time: "10:32 AM",
-    },
-    {
-        id: 2,
-        sender: "me",
-        content: "Of course, Jordan. The team is looking for a product designer to help shape our candidate experience.",
-        time: "10:36 AM",
-    },
-    {
-        id: 3,
-        sender: "candidate",
-        content: "That sounds like a great fit. What would the next steps look like?",
-        time: "10:41 AM",
-    },
-];
+function Candidates() {
+  const [cards, setCards] = useState(candidates);
+  const [bridged, setBridged] = useState([]);
+  const [skipped, setSkipped] = useState([]);
 
-function Bridgers() {
-    const [messages, setMessages] = useState(initialMessages);
-    const [draft, setDraft] = useState("");
+  function getInitials(name) {
+    return name
+      .split(" ")
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase();
+  }
 
-    function handleSend(event) {
-        event.preventDefault();
-        const content = draft.trim();
-        if (!content) return;
-
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            {
-                id: Date.now(),
-                sender: "me",
-                content,
-                time: new Date().toLocaleTimeString([], {
-                    hour: "numeric",
-                    minute: "2-digit",
-                }),
-            },
-        ]);
-        setDraft("");
+  function handleDecision(id, decision) {
+    if (decision === "bridge") {
+      setBridged((current) => [...current, id]);
+      setSkipped((current) => current.filter((item) => item !== id));
     }
 
-    return (
-        <section className="candidate-chat" aria-label="Conversation with Jordan Lee">
-            <header className="candidate-chat__header">
-                <div className="candidate-avatar" aria-hidden="true">JL</div>
-                <div className="candidate-chat__identity">
-                    <h2>Jordan Lee</h2>
-                    <p>Product Designer <span aria-hidden="true">·</span> 4 years' experience</p>
-                </div>
-                <div className="candidate-status">
-                    <span className="candidate-status__dot" aria-hidden="true" />
-                    Available
-                </div>
-            </header>
+    if (decision === "skip") {
+      setSkipped((current) => [...current, id]);
+      setBridged((current) => current.filter((item) => item !== id));
+    }
 
-            <div className="candidate-chat__messages" aria-live="polite" aria-relevant="additions">
-                <p className="candidate-chat__date">Today</p>
-                {messages.map((message) => (
-                    <div
-                        className={`message-row message-row--${message.sender}`}
-                        key={message.id}
-                    >
-                        <article className={`message message--${message.sender}`}>
-                            <p>{message.content}</p>
-                            <time>{message.time}</time>
-                        </article>
+    setCards((current) => current.filter((candidate) => candidate.id !== id));
+  }
+
+  function handleDragEnd(candidateId, info) {
+    if (info.offset.x > 120) {
+      handleDecision(candidateId, "bridge");
+      return;
+    }
+
+    if (info.offset.x < -120) {
+      handleDecision(candidateId, "skip");
+      return;
+    }
+  }
+
+  return (
+    <section aria-label="Bridgers">
+      <p className="page-intro">
+        Swipe through matches. Drag right to bridge, or left to skip.
+      </p>
+
+      <div className="swipe-deck" aria-live="polite">
+        {cards.length === 0 ? (
+          <div className="swipe-empty-state">
+            <h2>You&apos;ve reviewed everyone.</h2>
+            <p>Check back later for more matches.</p>
+          </div>
+        ) : (
+          cards.slice(0, 3).map((candidate, index) => {
+            const isTop = index === 0;
+            const offset = index * 16;
+            const scale = 1 - index * 0.05;
+
+            return (
+              <motion.article
+                key={candidate.id}
+                className={`swipe-card${isTop ? " is-top" : ""}`}
+                initial={{ scale: 0.96, opacity: 0 }}
+                animate={{
+                  scale,
+                  y: offset,
+                  opacity: 1,
+                  rotate: index === 0 ? 0 : index % 2 === 0 ? 2 : -2,
+                }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                drag={isTop ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.18}
+                onDragEnd={(_, info) => {
+                  if (isTop) {
+                    handleDragEnd(candidate.id, info);
+                  }
+                }}
+                whileDrag={isTop ? { rotate: 8, scale: 1.02 } : undefined}
+                style={{ zIndex: cards.length - index }}
+              >
+                {candidate.photo ? (
+                  <img
+                    className="bridger-photo swipe-card__photo"
+                    src={candidate.photo}
+                    alt={`Photo of ${candidate.name}`}
+                  />
+                ) : (
+                  <div
+                    className="swipe-card__photo swipe-card__photo--placeholder"
+                    aria-label={`No profile photo for ${candidate.name}`}
+                  >
+                    <span>{getInitials(candidate.name)}</span>
+                  </div>
+                )}
+
+                <div className="swipe-card__content">
+                  <div className="swipe-card__meta">
+                    <strong>{candidate.match}%</strong>
+                    <span>Match</span>
+                  </div>
+
+                  <div className="swipe-card__header">
+                    <div>
+                      <h2>{candidate.name}</h2>
+                      <p>{candidate.role}</p>
                     </div>
-                ))}
-            </div>
+                    <span className="swipe-card__status">
+                      {candidate.status}
+                    </span>
+                  </div>
 
-            <form className="candidate-chat__composer" onSubmit={handleSend}>
-                <label className="visually-hidden" htmlFor="candidate-message">
-                    Message Jordan Lee
-                </label>
-                <input
-                    id="candidate-message"
-                    value={draft}
-                    onChange={(event) => setDraft(event.target.value)}
-                    placeholder="Write a message..."
-                    autoComplete="off"
-                />
-                <button type="submit" disabled={!draft.trim()}>
-                    Send
-                </button>
-            </form>
-        </section>
-    );
+                  <p className="swipe-card__location">
+                    📍 {candidate.location}
+                  </p>
+
+                  <ul className="skill-list" aria-label="Skills">
+                    {candidate.skills.map((skill) => (
+                      <li key={skill}>{skill}</li>
+                    ))}
+                  </ul>
+
+                  <p className="swipe-card__bio">{candidate.bio}</p>
+
+                  <div className="swipe-card__footer">
+                    <div className="bridger-actions">
+                      <button
+                        type="button"
+                        className="skip-button"
+                        onClick={() => handleDecision(candidate.id, "skip")}
+                      >
+                        Skip
+                      </button>
+                      <button
+                        type="button"
+                        className="bridge-button"
+                        onClick={() => handleDecision(candidate.id, "bridge")}
+                      >
+                        Bridge
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })
+        )}
+      </div>
+
+      {bridged.length > 0 && (
+        <p className="bridger-status">Bridged: {bridged.length}</p>
+      )}
+      {skipped.length > 0 && (
+        <p className="bridger-status bridger-status--muted">
+          Skipped: {skipped.length}
+        </p>
+      )}
+    </section>
+  );
 }
 
-export default Bridgers;
+export default Candidates;

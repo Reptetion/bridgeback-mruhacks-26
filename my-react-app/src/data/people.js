@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import user1 from "../assets/user1.jpg";
 import user2 from "../assets/user2.jpg";
 import user3 from "../assets/user3.jpg";
@@ -6,17 +7,35 @@ import user4 from "../assets/user4.jpg";
 import user4 from "../assets/user4.jpg";
 import user4 from "../assets/user4.jpg";
 import user4 from "../assets/user4.jpg";
+=======
+import user1 from "../assets/candidates/user1.jpg";
+import user2 from "../assets/candidates/user2.jpg";
+import user3 from "../assets/candidates/user3.jpg";
+import user4 from "../assets/candidates/user4.jpg";
+>>>>>>> 6a5ef0a11fb3907b5d448fa8c4ba6e2cff97f718
 
 
 export const candidates = [
   {
     id: 1,
-    name: "John Doe",
-    role: "Software Developer",
-    email: "john.doe@example.com",
-    skills: ["Java", "Python", "SQL"],
+    name: "Elena Rostova",
+    role: "Senior UX/UI Designer",
+    email: "elena.rostova@example.com",
+    bio: "Creating intuitive digital experiences with a user-centric focus.",
+    location: "San Francisco, CA",
+    skills: [
+      "User Research",
+      "Figma",
+      "Prototyping",
+      "Visual Design",
+      "Interaction Design",
+      "Teamwork",
+      "Product Strategy",
+      "HTML/CSS",
+    ],
     status: "Available",
     photo: user1,
+    match: 96,
   },
   {
     id: 2,
@@ -26,6 +45,7 @@ export const candidates = [
     skills: ["JavaScript", "HTML", "CSS"],
     status: "Available",
     photo: user2,
+    match: 91,
   },
   {
     id: 3,
@@ -35,6 +55,7 @@ export const candidates = [
     skills: ["C++", "C#", ".NET"],
     status: "Available",
     photo: user3,
+    match: 88,
   },
   {
     id: 4,
@@ -44,6 +65,27 @@ export const candidates = [
     skills: ["Ruby", "Rails", "PostgreSQL"],
     status: "Available",
     photo: user4,
+    match: 85,
+  },
+  {
+    id: 5,
+    name: "Avery Lee",
+    role: "Product Designer",
+    email: "avery.lee@example.com",
+    skills: ["Design Systems", "Research", "UX Writing"],
+    status: "Available",
+    photo: null,
+    match: 90,
+  },
+  {
+    id: 6,
+    name: "Marcus Brooks",
+    role: "Software Engineer",
+    email: "marcus.brooks@example.com",
+    skills: ["React", "Node", "MongoDB"],
+    status: "Available",
+    photo: null,
+    match: 87,
   },
   {
     id: 5,
