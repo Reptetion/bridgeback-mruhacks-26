@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./candidates.css";
+import "./chat.css";
 
 const initialMessages = [
     {
@@ -22,7 +22,7 @@ const initialMessages = [
     },
 ];
 
-function Bridgers() {
+function Chat() {
     const [messages, setMessages] = useState(initialMessages);
     const [draft, setDraft] = useState("");
 
@@ -94,4 +94,4 @@ function Bridgers() {
     );
 }
 
-export default Bridgers;
+export default Chat;

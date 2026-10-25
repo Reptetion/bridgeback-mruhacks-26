@@ -1,0 +1,142 @@
+.page-intro {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bridger-list {
+  display: grid;
+  gap: 16px;
+}
+
+.bridger-card,
+.stat-card,
+.settings-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.bridger-card h2 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.bridger-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f0f4f3;
+  font-size: 12px;
+}
+
+.bridge-button,
+.settings-card button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--teal);
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.bridge-button:disabled {
+  background: #9db9b7;
+  cursor: default;
+}
+
+.skip-button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--ink);
+  background: #f0f4f3;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.skip-button:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+
+.bridger-card {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.bridger-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bridger-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.bridger-status {
+  margin-top: 12px;
+  color: #47765f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 28px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings-card label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.settings-card input[type="text"] {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+}
