@@ -14,6 +14,11 @@ Unlike other online marketplace platforms like Fiverr, BridgeBack drwas inspirat
 platform where finding someone is possible with just a swipe, creating a less saturated environment. Instead of a platform where
 results are thrown right at you, <i>which can be quite overwhelming and difficult for new sellers to break into</i>, BridgeBack **bridges** that connection simply through a score, which is calculated based off relevance.
 
+## Tech Stack Used
+- HTML
+- React + Vite
+- Javascript
+
 #
 Contributers: Daniel Eliezer, Lindsay Mendiola, Tejiri Efemini, Aku Chuyum
 
