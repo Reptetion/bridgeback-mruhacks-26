@@ -8,6 +8,15 @@ function Candidates() {
   const [bridged, setBridged] = useState([]);
   const [skipped, setSkipped] = useState([]);
 
+  function getInitials(name) {
+    return name
+      .split(" ")
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase();
+  }
+
   function handleDecision(id, decision) {
     if (decision === "bridge") {
       setBridged((current) => [...current, id]);
@@ -75,11 +84,20 @@ function Candidates() {
                 whileDrag={isTop ? { rotate: 8, scale: 1.02 } : undefined}
                 style={{ zIndex: cards.length - index }}
               >
-                <img
-                  className="bridger-photo swipe-card__photo"
-                  src={candidate.photo}
-                  alt={`Photo of ${candidate.name}`}
-                />
+                {candidate.photo ? (
+                  <img
+                    className="bridger-photo swipe-card__photo"
+                    src={candidate.photo}
+                    alt={`Photo of ${candidate.name}`}
+                  />
+                ) : (
+                  <div
+                    className="swipe-card__photo swipe-card__photo--placeholder"
+                    aria-label={`No profile photo for ${candidate.name}`}
+                  >
+                    <span>{getInitials(candidate.name)}</span>
+                  </div>
+                )}
 
                 <div className="swipe-card__content">
                   <div className="swipe-card__meta">
@@ -123,7 +141,7 @@ function Candidates() {
                         className="bridge-button"
                         onClick={() => handleDecision(candidate.id, "bridge")}
                       >
-                        Connect
+                        Bridge
                       </button>
                     </div>
                   </div>

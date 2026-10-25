@@ -1,7 +1,7 @@
-import user1 from "../assets/user1.jpg";
-import user2 from "../assets/user2.jpg";
-import user3 from "../assets/user3.jpg";
-import user4 from "../assets/user4.jpg";
+import user1 from "../assets/candidates/user1.jpg";
+import user2 from "../assets/candidates/user2.jpg";
+import user3 from "../assets/candidates/user3.jpg";
+import user4 from "../assets/candidates/user4.jpg";
 
 
 export const candidates = [
@@ -55,5 +55,25 @@ export const candidates = [
     status: "Available",
     photo: user4,
     match: 85,
+  },
+  {
+    id: 5,
+    name: "Avery Lee",
+    role: "Product Designer",
+    email: "avery.lee@example.com",
+    skills: ["Design Systems", "Research", "UX Writing"],
+    status: "Available",
+    photo: null,
+    match: 90,
+  },
+  {
+    id: 6,
+    name: "Marcus Brooks",
+    role: "Software Engineer",
+    email: "marcus.brooks@example.com",
+    skills: ["React", "Node", "MongoDB"],
+    status: "Available",
+    photo: null,
+    match: 87,
   },
 ];
