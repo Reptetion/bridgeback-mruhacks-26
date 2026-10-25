@@ -12,12 +12,7 @@ const pages = {
   Candidates: { title: "Candidates", eyebrow: "Find talent", Page: Bridgers },
   Bridgers: { title: "Bridgers", eyebrow: "Connect with talent", Page: Candidates },
   Jobs: { title: "Jobs", eyebrow: "Open roles", Page: Jobs },
-<<<<<<< HEAD
   Settings: { title: "Settings", eyebrow: "Workspace", Page: Settings },
-=======
-  Bridgers: { title: "Bridgers", eyebrow: "Find talent", Page: Bridgers },
-  Settings: { title: "Your Settings", eyebrow: "Settings", Page: Settings },
->>>>>>> d3df524617f635257ba989b57982642626b5fe24
 };
 
 const navigationItems = Object.keys(pages);
