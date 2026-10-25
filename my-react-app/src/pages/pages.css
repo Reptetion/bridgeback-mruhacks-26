@@ -5,101 +5,227 @@
   line-height: 1.5;
 }
 
-.bridger-list {
+.swipe-deck {
+  position: relative;
+  width: min(100%, 500px);
+  min-height: 600px;
+  margin: 0 auto;
+}
+
+.swipe-card {
+  position: absolute;
+  inset: 0 auto auto 50%;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
   display: grid;
+  grid-template-rows: 260px 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(125, 138, 145, 0.22);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 42px rgba(67, 87, 96, 0.14);
+  backdrop-filter: blur(4px);
+}
+
+.swipe-card.is-top {
+  box-shadow: 0 24px 44px rgba(41, 64, 72, 0.14);
+}
+
+.swipe-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  background: #dfe9ea;
+}
+
+.swipe-card__content {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 18px 18px 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.swipe-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
+  padding-right: 10px;
 }
 
-.bridger-card,
-.stat-card,
-.settings-card {
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
-}
-
-.bridger-card h2 {
+.swipe-card__header h2 {
   margin: 0 0 4px;
-  font-size: 17px;
+  font-size: 22px;
+  line-height: 1.1;
 }
 
-.bridger-card p {
-  margin: 0 0 12px;
+.swipe-card__header p {
+  margin: 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 14px;
+}
+
+.swipe-card__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(16, 154, 154, 0.08);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.swipe-card__meta {
+  position: absolute;
+  top: -44px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border: 8px solid rgba(15, 137, 137, 0.9);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 18px rgba(18, 152, 152, 0.12);
+}
+
+.swipe-card__meta span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.swipe-card__meta strong {
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.swipe-card__location {
+  margin: -2px 0 0;
+  color: #4d5b5f;
+  font-size: 14px;
 }
 
 .skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0 0 14px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .skill-list li {
-  padding: 4px 10px;
+  padding: 5px 10px;
+  border: 1px solid rgba(22, 135, 135, 0.22);
   border-radius: 999px;
-  background: #f0f4f3;
+  background: #edf7f6;
+  color: #2b5758;
   font-size: 12px;
+  font-weight: 600;
+}
+
+.skill-list li:nth-child(2n) {
+  background: #f6f2ff;
+  border-color: rgba(136, 118, 240, 0.32);
+  color: #5b49a9;
+}
+
+.skill-list li:nth-child(3n) {
+  background: #fff4e8;
+  border-color: rgba(220, 164, 68, 0.28);
+  color: #7a5a17;
+}
+
+.skill-list li:nth-child(4n) {
+  background: #eef7ff;
+  border-color: rgba(78, 123, 182, 0.28);
+  color: #315e92;
+}
+
+.swipe-card__bio {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.swipe-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.swipe-card__footer .bridger-actions {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 0;
 }
 
 .bridge-button,
 .settings-card button {
-  min-height: 38px;
-  padding: 0 16px;
+  min-height: 42px;
+  padding: 0 20px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 999px;
   color: #fff;
-  background: var(--teal);
-  font-size: 14px;
-  font-weight: 650;
+  background: linear-gradient(135deg, #0f867e, #1aa1a1);
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-}
-
-.bridge-button:disabled {
-  background: #9db9b7;
-  cursor: default;
+  box-shadow: 0 8px 20px rgba(12, 132, 126, 0.2);
 }
 
 .skip-button {
-  min-height: 38px;
-  padding: 0 16px;
-  border: 0;
-  border-radius: 6px;
-  color: var(--ink);
-  background: #f0f4f3;
-  font-size: 14px;
-  font-weight: 650;
+  min-height: 42px;
+  padding: 0 24px;
+  border: 1px solid rgba(41, 60, 64, 0.35);
+  border-radius: 999px;
+  color: #2b3f43;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
 }
 
+.bridge-button:disabled,
 .skip-button:disabled {
-  color: var(--muted);
+  opacity: 0.7;
   cursor: default;
 }
 
-.bridger-card {
+.swipe-empty-state {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  gap: 16px;
+  place-items: center;
+  min-height: 260px;
+  padding: 32px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+  text-align: center;
 }
 
-.bridger-photo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
+.swipe-empty-state h2 {
+  margin: 0 0 8px;
 }
 
-.bridger-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
+.swipe-empty-state p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .bridger-status {
@@ -109,34 +235,28 @@
   font-weight: 700;
 }
 
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-}
-
-.stat-card strong {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 28px;
-}
-
-.stat-card span {
+.bridger-status--muted {
   color: var(--muted);
-  font-size: 13px;
 }
 
-.settings-card label {
-  display: grid;
-  gap: 6px;
-  margin-bottom: 14px;
-  font-size: 14px;
-}
+@media (max-width: 640px) {
+  .swipe-deck {
+    min-height: 500px;
+  }
 
-.settings-card input[type="text"] {
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font: inherit;
+  .swipe-card {
+    width: min(100%, 360px);
+    grid-template-rows: 220px 1fr;
+  }
+
+  .swipe-card__meta {
+    width: 100px;
+    height: 100px;
+    top: -30px;
+    right: 18px;
+  }
+
+  .swipe-card__meta strong {
+    font-size: 24px;
+  }
 }

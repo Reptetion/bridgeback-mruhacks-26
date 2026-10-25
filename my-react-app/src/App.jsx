@@ -7,15 +7,16 @@ import "./App.css";
 
 const pages = {
   Dashboard: { title: "Dashboard", eyebrow: "Talent workspace", Page: Dashboard },
-  Candidates: { title: "Candidates", eyebrow: "Find talent", Page: Bridgers },
-  Bridgers: { title: "Bridgers", eyebrow: "Connect with talent", Page: Candidates },
+  Candidates: { title: "Find Talent", eyebrow: "Find talent", Page: Candidates },
+  Matches: { title: "Find Talent", eyebrow: "Find talent", Page: Candidates },
+  Jobs: { title: "Jobs", eyebrow: "Open roles", Page: Bridgers },
   Settings: { title: "Settings", eyebrow: "Workspace", Page: Settings },
 };
 
 const navigationItems = Object.keys(pages);
 
 function App() {
-  const [activePage, setActivePage] = useState("Candidates");
+  const [activePage, setActivePage] = useState("Matches");
   const { title, eyebrow, Page } = pages[activePage];
 
   return (
@@ -50,7 +51,6 @@ function App() {
         <Page />
       </main>
     </div>
-  
   );
 }
 
