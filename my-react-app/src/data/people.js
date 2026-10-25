@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import user1 from "../assets/user1.jpg";
-import user2 from "../assets/user2.jpg";
-import user3 from "../assets/user3.jpg";
-import user4 from "../assets/user4.jpg";
-import user4 from "../assets/user4.jpg";
-import user4 from "../assets/user4.jpg";
-import user4 from "../assets/user4.jpg";
-import user4 from "../assets/user4.jpg";
-=======
 import user1 from "../assets/candidates/user1.jpg";
 import user2 from "../assets/candidates/user2.jpg";
 import user3 from "../assets/candidates/user3.jpg";
 import user4 from "../assets/candidates/user4.jpg";
->>>>>>> 6a5ef0a11fb3907b5d448fa8c4ba6e2cff97f718
+import user5 from "../assets/candidates/user5.jpg";
+import user6 from "../assets/candidates/user6.jpg";
+import user7 from "../assets/candidates/user7.jpg";
+import user8 from "../assets/candidates/user8.jpg";
 
 
 export const candidates = [
